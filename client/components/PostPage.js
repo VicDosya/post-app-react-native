@@ -8,6 +8,9 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 //Import components
 import styles from "./styles/PostPageStyles";
 
+//TEMPORARY URL
+import { API_URL } from "../config";
+
 export default function PostPage() {
   //useState Variables
   const [title, setTitle] = useState("");
@@ -27,7 +30,7 @@ export default function PostPage() {
   //Get post data by its id.
   const getPost = () => {
     axios
-      .get(`http://192.168.1.95:3000/api/posts/${postId}`)
+      .get(`${API_URL}/api/posts/${postId}`)
       .then((res) => {
         setTitle(res.data.title);
         setDescription(res.data.description);
